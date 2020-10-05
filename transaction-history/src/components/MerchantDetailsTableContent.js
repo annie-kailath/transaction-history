@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
 class MerchantDetailsTableContent extends Component {
+    constructor(props) {
+        super(props)
+        this.sendCompanyName = this.sendCompanyName.bind(this);
+    }
+
+    sendCompanyName = (e) => {
+        this.props.setCompanyName(e.currentTarget.title);
+    }
     render() {
         let rows = this.props.transactionsData.map((row, index) => {
             return (
                 <tr key={index} >
                     <td>{row.id}</td>
-                    <td>{row.name}</td>
+                    <td><div title={row.name} onClick={this.sendCompanyName}>{row.name}</div></td>
                     <td>{row.isTrading ? 'Trading' : 'Not Trading'}</td>
                     <td>{row.currency}</td>
                 </tr>

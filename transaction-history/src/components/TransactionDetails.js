@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
 const TableHeader = () => {
     return (<thead>
@@ -19,7 +19,7 @@ const TableContent = (props) => {
                 <td>{row.id}</td>
                 <td>{row.description}</td>
                 <td>{row.customerId}</td>
-                <td>{row.date.toLocaleTimeString()}</td>
+                <td>{row.date}</td>
                 <td>{row.ccExpiry}</td>
                 <td>{row.amount}</td>
             </tr>
@@ -31,10 +31,13 @@ class TransactionDetails extends Component {
     render() {
         const { transactions } = this.props;
         return (
-            <table className="table">
-                <TableHeader />
-                <TableContent transactions={transactions} />
-            </table>
+            <div className="container">
+                <h3>{transactions.name + ' Transactions'}</h3>
+                <table className="table">
+                    <TableHeader />
+                    <TableContent transactions={transactions.transactions} />
+                </table>
+            </div>
         )
 
     }
