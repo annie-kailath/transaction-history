@@ -6,7 +6,7 @@ const MerchantDetailsTableHeader = () => {
     return (<thead>
         <tr>
             <th>ID</th>
-            <th>Merchant Name</th>
+            <th>Merchant</th>
             <th>Status</th>
             <th>Currency</th>
         </tr>

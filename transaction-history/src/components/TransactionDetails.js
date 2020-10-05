@@ -5,7 +5,7 @@ const TableHeader = () => {
         <tr>
             <th>ID</th>
             <th>Description</th>
-            <th>Customer Name</th>
+            <th>Customer</th>
             <th>Date</th>
             <th>Expiry</th>
             <th>Amount</th>

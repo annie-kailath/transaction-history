@@ -14,7 +14,7 @@ class MerchantDetailsTableContent extends Component {
             return (
                 <tr key={index} >
                     <td>{row.id}</td>
-                    <td><div title={row.name} onClick={this.sendCompanyName}>{row.name}</div></td>
+                    <td><button type="button" className="btn btn-link" title={row.name} onClick={this.sendCompanyName}>{row.name}</button></td>
                     <td>{row.isTrading ? 'Trading' : 'Not Trading'}</td>
                     <td>{row.currency}</td>
                 </tr>

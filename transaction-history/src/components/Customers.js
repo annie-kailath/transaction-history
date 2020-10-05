@@ -4,8 +4,8 @@ const CustomerTableHeader = () => {
     return (<thead>
         <tr>
             <th>ID</th>
-            <th>Customer Name</th>
-            <th>Merchant Name</th>
+            <th>Customer</th>
+            <th>Merchant</th>
         </tr>
     </thead>)
 }
