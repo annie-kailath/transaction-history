@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MerchantDetailsTableContent from './MerchantDetailsTableContent';
 
 const MerchantDetailsTableHeader = () => {
     return (<thead>
@@ -9,20 +10,6 @@ const MerchantDetailsTableHeader = () => {
             <th>Currency</th>
         </tr>
     </thead>)
-}
-
-const MerchantDetailsTableContent = (props) => {
-    let rows = props.transactionsData.map((row, index) => {
-        return (
-            <tr key={index} >
-                <td>{row.id}</td>
-                <td>{row.name}</td>
-                <td>{row.isTrading ? 'Trading' : 'Not Trading'}</td>
-                <td>{row.currency}</td>
-            </tr>
-        )
-    })
-    return (<tbody>{rows}</tbody>)
 }
 
 class MerchantTransactions extends Component {
