@@ -20,7 +20,7 @@ const TableContent = (props) => {
             <tr key={index}>
                 <td>{row.id}</td>
                 <td>{row.description}</td>
-                <td>{row.customerId}</td>
+                <td>{row.customerName}</td>
                 <td>{row.date}</td>
                 <td>{row.ccExpiry}</td>
                 <td><Amount amount={row.amount} currency={merchantTransactions.currency}/></td>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Amount = (props) => {
     let formattedAmount = (props.amount / 100).toFixed(2);

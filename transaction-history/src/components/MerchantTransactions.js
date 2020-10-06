@@ -41,7 +41,7 @@ class MerchantTransactions extends Component {
                     <MerchantDetailsTableHeader />
                     <MerchantDetailsTableContent setCompanyName={this.setMerchantName} transactionsData={transactionsData} />
                 </table>
-                <br/>
+                <br />
                 {transactionDetails}
             </div>)
     }
