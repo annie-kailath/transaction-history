@@ -8,10 +8,12 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            merchantTransaction: true
+            merchantTransaction: true,
+            showMessage: true
         };
         this.displayMerchantDetails = this.displayMerchantDetails.bind(this);
         this.displayCustomers = this.displayCustomers.bind(this);
+        this.showMessage = this.showMessage.bind(this);
     }
     displayMerchantDetails() {
         this.setState(state => ({
@@ -24,9 +26,14 @@ class App extends Component {
         }));
     }
 
+    showMessage(props) {
+        this.setState({ showMessage: false })
+    }
+
     render() {
         let table;
         let merchantTransaction = this.state.merchantTransaction;
+        let viewTransactionMessage = "Please select 'View Transaction' to see the transactions for the company";
         if (merchantTransaction) {
             let merchantDetails = merchants.map(merchant => {
                 let transactionList = merchant.transactions.map(transaction => {
@@ -38,7 +45,7 @@ class App extends Component {
                 })
                 return ({ id: merchant.id, name: merchant.name, isTrading: merchant.isTrading, currency: merchant.currency, transactions: transactionList })
             })
-            table = <MerchantTransactions transactionsData={merchantDetails}/>
+            table = <MerchantTransactions transactionsData={merchantDetails} setMessage={this.showMessage} />
         }
         else {
             let custumerDetails = customers.map((customer) => {
@@ -48,7 +55,7 @@ class App extends Component {
             table = <Customers customersData={custumerDetails} />
         }
         return (<div className="container">
-            <div>{this.state.message}</div>
+            {this.state.showMessage ? <ViewTransactionMessage message={viewTransactionMessage} /> : null}
             <div className="btn-group" role="group" aria-label="Transactions">
                 <button type="button" className="btn btn-light" onClick={this.displayMerchantDetails}>Merchant Transactions</button>
                 <button type="button" className="btn btn-light" onClick={this.displayCustomers}>Customers</button>
@@ -57,5 +64,5 @@ class App extends Component {
         </div >)
     }
 }
-
+const ViewTransactionMessage = ({ message }) => { return (<div className="alert alert-secondary" role="alert">{message}</div>) }
 export default App

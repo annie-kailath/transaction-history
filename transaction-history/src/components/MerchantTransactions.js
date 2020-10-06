@@ -22,6 +22,7 @@ class MerchantTransactions extends Component {
     }
     setMerchantName = (name) => {
         this.setState({ selectedMerchant: name })
+        this.props.setMessage(false);
     }
 
     render() {
