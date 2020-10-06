@@ -9,6 +9,7 @@ const MerchantDetailsTableHeader = () => {
             <th>Merchant</th>
             <th>Status</th>
             <th>Currency</th>
+            <th></th>
         </tr>
     </thead>)
 }
@@ -16,7 +17,7 @@ const MerchantDetailsTableHeader = () => {
 class MerchantTransactions extends Component {
     constructor(props) {
         super(props);
-        this.state = { selectedMerchant: "" }
+        this.state = { selectedMerchant: undefined }
         this.setMerchantName = this.setMerchantName.bind(this);
     }
     setMerchantName = (name) => {
@@ -27,7 +28,7 @@ class MerchantTransactions extends Component {
         const { transactionsData } = this.props;
         let transactionDetails;
         let selectedMerchantName = this.state.selectedMerchant;
-        if (selectedMerchantName !== "") {
+        if (selectedMerchantName !== undefined) {
             let selectedMerchantTransactions = transactionsData.filter(transaction =>
                 transaction.name === selectedMerchantName
             )[0];

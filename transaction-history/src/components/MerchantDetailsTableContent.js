@@ -7,16 +7,17 @@ class MerchantDetailsTableContent extends Component {
     }
 
     sendCompanyName = (e) => {
-        this.props.setCompanyName(e.currentTarget.title);
+        this.props.setCompanyName(e.currentTarget.value);
     }
     render() {
         let rows = this.props.transactionsData.map((row, index) => {
             return (
                 <tr key={index} >
                     <td>{row.id}</td>
-                    <td><button type="button" className="btn btn-link" title={row.name} onClick={this.sendCompanyName}>{row.name}</button></td>
+                    <td>{row.name}</td>
                     <td>{row.isTrading ? 'Trading' : 'Not Trading'}</td>
                     <td>{row.currency}</td>
+                    <td><button type="button" className="btn btn-secondary" value={row.name} onClick={this.sendCompanyName}>View Transactions</button> </td>
                 </tr>
             )
         })
