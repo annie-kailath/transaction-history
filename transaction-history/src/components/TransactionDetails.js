@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Amount from './amount';
 
 const TableHeader = () => {
     return (<thead>
@@ -13,7 +14,8 @@ const TableHeader = () => {
     </thead>)
 }
 const TableContent = (props) => {
-    const rows = props.transactions.map((row, index) => {
+    let merchantTransactions = props.transactions;
+    const rows = merchantTransactions.transactions.map((row, index) => {
         return (
             <tr key={index}>
                 <td>{row.id}</td>
@@ -21,7 +23,7 @@ const TableContent = (props) => {
                 <td>{row.customerId}</td>
                 <td>{row.date}</td>
                 <td>{row.ccExpiry}</td>
-                <td>{row.amount}</td>
+                <td><Amount amount={row.amount} currency={merchantTransactions.currency}/></td>
             </tr>
         )
     })
@@ -35,7 +37,7 @@ class TransactionDetails extends Component {
                 <h3>{transactions.name + ' Transactions'}</h3>
                 <table className="table">
                     <TableHeader />
-                    <TableContent transactions={transactions.transactions} />
+                    <TableContent transactions={transactions} />
                 </table>
             </div>
         )

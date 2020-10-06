@@ -25,11 +25,12 @@ class App extends Component {
         let table;
         let merchantTransaction = this.state.merchantTransaction;
         if (merchantTransaction) {
+
             table = <MerchantTransactions transactionsData={merchants} />
         }
         else {
             let custumerDetails = customers.map((customer) => {
-                let merchantName = merchants.filter(merchant => merchant.id === customer.merchantId)[0].name;
+                let merchantName = merchants.find(merchant => merchant.id === customer.merchantId).name;
                 return { name: customer.name, id: customer.id, merchantName: merchantName }
             })
             table = <Customers customersData={custumerDetails} />
