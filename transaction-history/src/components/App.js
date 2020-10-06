@@ -17,12 +17,14 @@ class App extends Component {
     }
     displayMerchantDetails() {
         this.setState(state => ({
-            merchantTransaction: true
+            merchantTransaction: true,
+            showMessage: true
         }));
     }
     displayCustomers() {
         this.setState(state => ({
-            merchantTransaction: false
+            merchantTransaction: false,
+            showMessage: false
         }));
     }
 
